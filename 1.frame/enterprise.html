@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>enterprise</title>
+    <style>
+      .enterprise {
+        height: 100px;
+        background: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <iframe width="100%" src="http://127.0.0.1:5500/1.iframe/staff.html" frameborder="0"></iframe>
+      <div class="enterprise">enterprise</div>
+      <button class="send">发送消息</button>
+    </div>
+    <script>
+      const btnEl = document.querySelector(".send");
+      const iframeEl = document.querySelector("iframe");
+
+      // 发送数据
+      btnEl.addEventListener("click", () => {
+        const info = { name: "ice", age: 23 };
+        const targetOrigin = "http://127.0.0.1:5500";
+
+        iframeEl.contentWindow.postMessage(info, targetOrigin);
+      });
+    </script>
+  </body>
+</html>
